@@ -21,6 +21,9 @@ form {
     input[type="checkbox"] {
         @apply w-5 h-5;
     }
+    li {
+        @apply text-red-500 text-sm;
+    }
 }
 
 form div {

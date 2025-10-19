@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8">
+        <meta charset="UTF-8" />
         <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        {% block stylesheets %}
-        {% endblock %}
-
-        {% block javascripts %}
-            {% block importmap %}{{ importmap('app') }}{% endblock %}
-        {% endblock %}
+        <link
+            rel="icon"
+            href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>"
+        />
+        {% block stylesheets %} {% endblock %} {% block javascripts %} {% block
+        importmap %}{{
+            importmap("app")
+        }}{% endblock %} {% endblock %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+        {% if is_granted('IS_AUTHENTICATED') %}
+        <header class="border-b-2 p-2">
+            <nav class="flex justify-between items-center">
+                <h1
+                    class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-purple-500 uppercase"
+                >
+                    MyTasks Secure Symfony
+                </h1>
+                <ul class="flex gap-4">
+                    <li><a href="{{ path('app_task_index') }}">Tasks</a></li>
+                    <li class="flex flex-col">
+                        <a href="{{ path('app_user_edit') }}">Profile</a>
+                        <a href="{{ path('app_logout') }}">Logout</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        {% endif %} {% block body %}{% endblock %}
     </body>
 </html>

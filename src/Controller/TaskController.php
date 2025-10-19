@@ -43,13 +43,13 @@ final class TaskController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'app_task_show', methods: ['GET'])]
-    public function show(Task $task): Response
-    {
-        return $this->render('task/show.html.twig', [
-            'task' => $task,
-        ]);
-    }
+    // #[Route('/{id}', name: 'app_task_show', methods: ['GET'])]
+    // public function show(Task $task): Response
+    // {
+    //     return $this->render('task/show.html.twig', [
+    //         'task' => $task,
+    //     ]);
+    // }
 
     #[Route('/{id}/edit', name: 'app_task_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Task $task, EntityManagerInterface $entityManager): Response

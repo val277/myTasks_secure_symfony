@@ -1,12 +1,10 @@
 {% extends 'base.html.twig' %} {% block title %}Edit User{% endblock %} {% block
 body %}
-<h1>Edit User</h1>
-<p>
-    Your infos: {{ user.name }} - {{ user.email }}
+<h3 class="text-2xl font-bold m-2">Edit User</h3>
+<p class="flex flex-col gap-2 border-2 rounded-md p-2 m-2">
+    Your infos:
+    <span> {{ user.name }} - {{ user.email }}</span>
     <a href="{{ path('app_user_edit_infos') }}">edit infos</a>
 </p>
-<p>
-    Edit your password:
-    <a href="{{ path('app_user_edit_password') }}">edit password</a>
-</p>
+<a class="m-2" href="{{ path('app_user_edit_password') }}">edit password</a>
 {% endblock %}

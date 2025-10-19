@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %} {% block title %}Edit User{% endblock %} {% block
+body %}
+<h1>Edit User</h1>
+<p>
+    Your infos: {{ user.name }} - {{ user.email }}
+    <a href="{{ path('app_user_edit_infos') }}">edit infos</a>
+</p>
+<p>
+    Edit your password:
+    <a href="{{ path('app_user_edit_password') }}">edit password</a>
+</p>
+{% endblock %}
